@@ -24,9 +24,9 @@ export class AdminDashboardComponent implements OnInit {
           console.log(data);
           var html="";
           for(var i=0;i<data.data.details.length;i++){
-            html += "<div class='col-xs-6 col-sm-6 col-md-6 col-lg-6'><div class='card' style='margin-top:10%'>";
-            html += "<div class='card-title' style='padding-top:10%'><h4><u>"+data.data.details[i].service+"</u></h4></div>";
-            html += "<div class='card-body' style='padding-bottom:10%'>number of users: "+data.data.details[i].count+"</div>";
+            html += "<div class='col-xs-6 col-sm-6 col-md-6 col-lg-6'><div class='card' style='margin-top:5%; background-color:rgb(167, 209, 236)'>";
+            html += "<div class='card-title' style='padding-top:5%'><h4><u>"+data.data.details[i].service+"</u></h4></div>";
+            html += "<div class='card-body' style='padding-bottom:5%'>number of users: "+data.data.details[i].count+"</div>";
             html += "</div></div>";
           }
           $("#services").html(html);
@@ -49,7 +49,7 @@ export class AdminDashboardComponent implements OnInit {
           var list=data.data.data;
           var userList=[];
           for(var i=0; i<list.length; i++){
-            userList.push([i,list[i].firstName,list[i].lastName,list[i].email,list[i].phoneNumber]);
+            userList.push([i+1,list[i].firstName,list[i].lastName,list[i].email,list[i].service]);
           }
           $('#example').DataTable( {
             data:userList

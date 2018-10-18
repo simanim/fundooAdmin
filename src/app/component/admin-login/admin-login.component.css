@@ -7,3 +7,8 @@
 .layout{
     width:50%;
 }
+#logincard{
+    background-color: rgb(128, 193, 236);
+    border: 3px double black;
+    border-radius: 5%;
+}
