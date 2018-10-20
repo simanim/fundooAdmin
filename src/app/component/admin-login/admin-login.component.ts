@@ -12,13 +12,21 @@ export class AdminLoginComponent implements OnInit {
 
   ngOnInit() {
     $(document).ready(function(){
+     /**
+      * 
+      * @description if the local storage has already fundooId, it will directly take to dashboard page
+      */
       var id=localStorage.getItem("fundooId");
-
       if(id!=null){
         window.location.href = "/adminDashboard";
       }
 
       $("button").click(function(){
+        try{
+       /**
+        * 
+        * @description taking the email and password values from frontend
+        */
         var adminEmail = $('#adminEmail').val();
         var adminPassword = $('#adminPassword').val();
 
@@ -28,15 +36,15 @@ export class AdminLoginComponent implements OnInit {
         */
         if(adminEmail.length == 0 && adminPassword.length == 0){
           $("h5").text("please fill all the inputs");
-          return console.log("please fill all the inputs");
+          return false;
         }
         if(adminEmail.length == 0){
           $("h5").text("please enter email");
-          return console.log("please fill all the inputs");
+          return false;
         }
         if(adminPassword.length == 0){
           $("h5").text("please enter password");
-          return console.log("please fill all the inputs");
+          return false;
         }
        /**
         * 
@@ -45,12 +53,12 @@ export class AdminLoginComponent implements OnInit {
         var regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
         if(regexEmail.test(adminEmail) == false){
           $("h5").text("invalid email");
-          return console.log("invalid email");
+          return false;
         }
 
        /**
         * 
-        * @description admin login
+        * @description calling admin login api
         */
         $.ajax({
           type: 'POST',
@@ -73,7 +81,13 @@ export class AdminLoginComponent implements OnInit {
           }
         });
         return false;
+      }catch(e){
+        if(e instanceof SyntaxError || e instanceof ReferenceError || e instanceof TypeError || e instanceof RangeError){
+          console.log("something bad happened!!! ");
+        }
+      }
       });
+    
     });
   }
 }

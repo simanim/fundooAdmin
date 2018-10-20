@@ -19,6 +19,7 @@ export class AdminDashboardComponent implements OnInit {
       * 
       * @description getting the service name and number of users registered to each service
       */
+      try{
       $.ajax({
         type: 'GET',
         url: 'http://34.213.106.173/api/user/UserStatics',
@@ -27,7 +28,6 @@ export class AdminDashboardComponent implements OnInit {
           "Authorization": id
         },
         success: function (data) {
-          console.log("card printing success");
           var html="";
           for(var i=0;i<data.data.details.length;i++){
             html += "<div class='col-xs-6 col-sm-6 col-md-6 col-lg-6'><div class='card' style='margin-top:5%; background-color:rgb(157, 223, 203)'>";
@@ -55,8 +55,6 @@ export class AdminDashboardComponent implements OnInit {
         url: 'http://34.213.106.173/api/user/getAdminUserList',
         dataType:"json",
         success: function (data) {
-          
-          console.log("getting userlist success");
           var list=data.data.data;
           var userList=[];
           for(var i=0; i<list.length; i++){
@@ -76,10 +74,10 @@ export class AdminDashboardComponent implements OnInit {
           * 
           * @description getting the details of the particular user, when click on the details button
           */
-          $('#userlistTable').on('click', 'tr', function () {
+          $('#userlistTable tbody').on('click', 'tr', function () {
             rowindex = table.row(this).index();
-            console.log(rowindex);
-            console.log(data.data.data[rowindex]);
+            // console.log(rowindex);
+            // console.log(data.data.data[rowindex]);
             $("#labelFirstName").text("First Name : "+data.data.data[rowindex].firstName);
             $("#labelLastName").text("Last Name : "+data.data.data[rowindex].lastName);
             $("#labelEmail").text("Email : "+data.data.data[rowindex].email);
@@ -91,7 +89,7 @@ export class AdminDashboardComponent implements OnInit {
           
         },
         error:function(error){
-          console.log("error")
+          console.log(error);
         }
       }).fail( function (request, status, error) {
         console.log("userlist failed");
@@ -111,7 +109,6 @@ export class AdminDashboardComponent implements OnInit {
             "Authorization": id
           },
           success: function (data) {
-            console.log("inn");
            /**
             * 
             * @description if the logout is success then it will directly take to admin login page
@@ -124,6 +121,12 @@ export class AdminDashboardComponent implements OnInit {
           }
         });
       });
+    }
+    catch(e){
+      if(e instanceof SyntaxError || e instanceof ReferenceError || e instanceof TypeError || e instanceof RangeError){
+        console.log("something bad happened!!! ");
+      }
+    }
     });
   }
 }

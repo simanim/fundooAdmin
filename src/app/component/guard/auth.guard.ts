@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 export class AuthGuard implements CanActivate {
   canActivate() {
     if (localStorage.getItem('fundooId')) {
-      // window.location.href="/adminDashboard";
         return true;
     }
     window.location.href="/adminLogin";
