@@ -1,0 +1,6 @@
+
+.table_color{
+    background-color:rgb(157, 223, 203)
+}
+table{table-layout: fixed}
+table td{word-wrap:  break-word ;}

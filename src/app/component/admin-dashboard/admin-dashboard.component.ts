@@ -11,6 +11,9 @@ export class AdminDashboardComponent implements OnInit {
 
   constructor() { }
   ngOnInit() {
+    $("#loader").show();
+    $("#userlistTable").hide();
+
     var rowindex;
     $(document).ready(function(){
       var id=localStorage.getItem("fundooId");
@@ -39,10 +42,12 @@ export class AdminDashboardComponent implements OnInit {
           * 
           * @description according to the number of service card, it will print
           */
+          $("#loader").hide();
+          $("#userlistTable").show();
+
           $("#services").html(html);
         },
         error: function (request, status, error) {
-          console.log("card printing failed");
         }
       });
    
@@ -76,8 +81,6 @@ export class AdminDashboardComponent implements OnInit {
           */
           $('#userlistTable tbody').on('click', 'tr', function () {
             rowindex = table.row(this).index();
-            // console.log(rowindex);
-            // console.log(data.data.data[rowindex]);
             $("#labelFirstName").text("First Name : "+data.data.data[rowindex].firstName);
             $("#labelLastName").text("Last Name : "+data.data.data[rowindex].lastName);
             $("#labelEmail").text("Email : "+data.data.data[rowindex].email);
@@ -89,10 +92,8 @@ export class AdminDashboardComponent implements OnInit {
           
         },
         error:function(error){
-          console.log(error);
         }
       }).fail( function (request, status, error) {
-        console.log("userlist failed");
       });
       
       
@@ -117,14 +118,17 @@ export class AdminDashboardComponent implements OnInit {
             localStorage.removeItem("fundooId");
           },
           error: function (request, status, error) {
-            console.log("logout failed");
           }
         });
       });
+
+      $("#AnsApproval").click(function(){
+          window.location.href = "/approval";
+      });
+
     }
     catch(e){
       if(e instanceof SyntaxError || e instanceof ReferenceError || e instanceof TypeError || e instanceof RangeError){
-        console.log("something bad happened!!! ");
       }
     }
     });

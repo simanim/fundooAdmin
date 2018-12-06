@@ -1,3 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.css";
+.overflow{
+    overflow: hidden;
+}
+.text_align_center{
+    text-align:center
+}
+.text_align_end{
+    text-align:end
+}
+.margin_top1{
+    margin-top: 1%;
+    
+}
+.overflow_auto{
+    overflow-x: auto;
+}
+.color1{
+    background-color:rgb(157, 223, 203)
+}
+.color2{
+    background-color:rgb(97, 211, 178)
+}
+.background{
+    background-color: rgb(97, 211, 178);
+    padding:1% 0% 1% 0%;
+}
+
+.full_width{
+    width:100%;
+}
+.text{
+    font-style: oblique; 
+    color: rgb(19, 102, 74);
+    background-color: transparent;
+    border-radius:5px;
+    margin-right:10px
+}

@@ -9,3 +9,10 @@
     border: 3px double black;
     border-radius: 5%;
 }
+.input{
+    background-color: rgb(210, 210, 243) ;
+    border: none;
+}
+.error{
+    color:rgb(185, 56, 56)
+}

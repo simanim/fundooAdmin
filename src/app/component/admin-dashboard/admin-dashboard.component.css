@@ -1,0 +1,16 @@
+.body_background{
+    background-color: rgb(203, 241, 230);
+}
+.dialog_background{
+    background-color: rgb(183, 226, 215);
+}
+.dialog_header{
+    background-color: rgb(128, 211, 190);
+}
+.dialog_title{
+    color:rgb(38, 110, 95);
+    margin-left: 1%;
+}
+.padding_5{
+    padding:5%;
+}

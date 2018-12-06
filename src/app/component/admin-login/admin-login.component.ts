@@ -83,7 +83,6 @@ export class AdminLoginComponent implements OnInit {
         return false;
       }catch(e){
         if(e instanceof SyntaxError || e instanceof ReferenceError || e instanceof TypeError || e instanceof RangeError){
-          console.log("something bad happened!!! ");
         }
       }
       });
