@@ -5,11 +5,13 @@ import { AdminLoginComponent } from './component/admin-login/admin-login.compone
 import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashboard.component';
 import {  AuthGuard} from "./component/guard/auth.guard";
 import { AnswerApprovalComponent } from './component/answer-approval/answer-approval.component';
+import { CartListComponent } from './component/cart-list/cart-list.component';
 
 const routes: Routes = [
   { path: 'adminLogin', component: AdminLoginComponent },
   { path: 'adminDashboard', component: AdminDashboardComponent, canActivate:[AuthGuard]},
   { path: 'approval', component: AnswerApprovalComponent },
+  { path: 'cart', component: CartListComponent },
   { path: '', redirectTo:"adminLogin", pathMatch: "full" }
 ];
 

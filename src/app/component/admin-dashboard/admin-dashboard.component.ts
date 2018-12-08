@@ -126,6 +126,10 @@ export class AdminDashboardComponent implements OnInit {
           window.location.href = "/approval";
       });
 
+      $("#cart").click(function(){
+        window.location.href = "/cart";
+    });
+
     }
     catch(e){
       if(e instanceof SyntaxError || e instanceof ReferenceError || e instanceof TypeError || e instanceof RangeError){

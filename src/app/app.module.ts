@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashboard.component';
 import { AnswerApprovalComponent } from './component/answer-approval/answer-approval.component';
 import { LoaderComponent } from './component/loader/loader.component';
+import { CartListComponent } from './component/cart-list/cart-list.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LoaderComponent } from './component/loader/loader.component';
     AdminLoginComponent,
     AdminDashboardComponent,
     AnswerApprovalComponent,
-    LoaderComponent
+    LoaderComponent,
+    CartListComponent
   ],
   imports: [
     BrowserModule,
